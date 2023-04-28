@@ -1,0 +1,108 @@
+---
+title: "The SSQ model of schizophrenic prodromal unfolding revised: An analysis of its causal chains based on the language of directed graphs"
+date: 09/01/2014
+author:
+  - name: D van Kampen
+    affiliation: Department of Clinical Psychology, Vrije Universiteit, Amsterdam, The Netherlands
+pub-info:
+  reference: >-
+    D van Kampen, “The SSQ model of schizophrenic prodromal unfolding revised: An analysis of its causal chains based on the language of directed graphs” <em>Eur Psychiatry</em> 29, 7 (September 2014): 437-448, doi: <a href="https://doi.org/10.1016/j.eurpsy.2013.11.001"><code>10.1016/j.eurpsy.2013.11.001</code></a>
+  links:
+  - name: Article
+    url: https://doi.org/10.1016/j.eurpsy.2013.11.001
+    icon: fa-solid fa-scroll
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1016/j.eurpsy.2013.11.001
+    icon: ai ai-zotero
+doi: 10.1016/j.eurpsy.2013.11.001
+---
+
+## Important links
+
+- [Article](https://doi.org/10.1016/j.eurpsy.2013.11.001)
+
+## Abstract
+
+### Objective
+Except in broad outline, little is known about the most likely symptomatic trajectories in prodromal schizophrenia. The aim of this study is to delineate these pathways.
+
+### Methods
+Taking into account existing clinical knowledge, the causal relationships between the 12 prodrome scales of the Schizotypic Syndrome Questionnaire (SSQ) were examined in a general-population sample by applying the mathematical theory of directed graphs. Use was made of two discovery algorithms implemented in the Tetrad-4 program, as well as of the graphical DAGitty program to test whether a particular model holds.
+
+### Results
+A promising model was selected that may describe the causal pathways in schizophrenic prodromal unfolding. Testing this model by means of DAGitty, it was shown that the minimal testable implications, listed as conditional independences, and the direct and total effects in the model, identified after correction for bias, were as hypothesized. For practical reasons, a simpler version of the resulting SSQ model, containing only its principal pathways, was provided.
+
+### Conclusions
+Although resembling an earlier model that was based on a series of LISREL analyses, the present model was believed to provide a more dependable description of schizophrenic prodromal unfolding, as it relies on methods that are less subject to the limitations involved in SEM.
+
+## DAG
+
+```{r}
+dag <- dagitty::dagitty('dag {
+AFF [pos="0.262,0.477"]
+AIS [pos="0.123,0.736"]
+ALN [pos="0.438,0.506"]
+APA [pos="0.376,0.147"]
+CDR [pos="0.628,0.332"]
+DET [pos="0.920,0.561"]
+EGC [outcome,pos="0.916,1.016"]
+FTW [pos="0.667,0.639"]
+HOS [pos="0.886,0.727"]
+PER [pos="0.920,0.382"]
+SAN [pos="0.031,0.371"]
+SUS [exposure,pos="0.295,1.003"]
+AFF -> ALN
+AFF -> APA
+AFF -> CDR
+AIS -> AFF
+AIS -> EGC
+AIS -> SUS
+ALN -> APA
+ALN -> DET
+ALN -> FTW
+ALN -> PER
+ALN -> SUS
+CDR -> DET
+EGC -> HOS
+FTW -> DET
+FTW -> EGC
+PER -> DET
+SAN -> AFF
+SAN -> AIS
+SAN -> ALN
+SAN -> APA
+SAN -> CDR
+SUS -> EGC
+SUS -> FTW
+SUS -> HOS
+}')
+tidy_dag <- ggdag::tidy_dagitty(dag)
+
+ggdag::ggdag_status(tidy_dag) +
+  ggdag::theme_dag()
+```
+
+The **adjustment sets** are:
+
+```{r}
+dagitty::adjustmentSets(dag)
+```
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1016/j.eurpsy.2013.11.001">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{van2014ssq,
+  title={The SSQ model of schizophrenic prodromal unfolding revised: An analysis of its causal chains based on the language of directed graphs},
+  author={van Kampen, Dirk},
+  journal={European Psychiatry},
+  volume={29},
+  number={7},
+  pages={437--448},
+  year={2014},
+  publisher={Cambridge University Press}
+}
+```
