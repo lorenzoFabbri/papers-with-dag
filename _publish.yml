@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: c8088c94-e5b5-4913-9998-21d327db04ee
+      url: 'https://lorenzof.quarto.pub/papers-with-dag'
