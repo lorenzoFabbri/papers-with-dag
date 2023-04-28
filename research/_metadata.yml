@@ -1,0 +1,19 @@
+date-format: "MMMM YYYY"
+
+title-block-banner: "#CF4446"
+
+toc: true
+toc-title: Contents
+toc-location: left
+
+execute:
+  echo: false
+  message: false
+  warning: false
+
+include-back-link: true
+
+format:
+  html:
+    template-partials:
+      - ../html/research/title-block.html

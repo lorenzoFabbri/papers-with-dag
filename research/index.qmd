@@ -1,0 +1,17 @@
+---
+title: "Articles"
+listing:
+  - id: articles
+    contents: "articles/*/index.qmd"
+    sort: "date desc"
+    template: ../html/research/listing.ejs
+    categories: true
+page-layout: full
+include-back-link: false
+toc-location: right
+---
+
+## Articles
+
+:::{#articles}
+:::

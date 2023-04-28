@@ -1,16 +1,82 @@
 project:
   type: website
 
+  preview:
+    port: 5555
+    browser: true
+    watch-inputs: true
+    navigate: true
+
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "!etc/"
+
+  resources:
+    - "files/**"
+    - "etc/**"
+
+freeze: true
+
+bibliography: files/bib/references.bib
+csl: files/bib/chicago-author-date.csl
+
+pagetitle: "{{< meta title >}} | Lorenzo Fabbri"
+description-meta: "Something"
+author-meta: "Lorenzo Fabbri"
+
 website:
-  title: "papers-with-dag"
+  title: "Papers with DAG"
+  description: "{{< meta description-meta >}}"
+  site-url: "https://lorenzof.quarto.pub/papers-with-dag/"
+  repo-url: "https://github.com/lorenzoFabbri/papers-with-dag"
+
+  twitter-card:
+    description: "{{< meta description-meta >}}"
+    card-style: summary_large_image
+    creator: "@lorenzoF_SM"
+    site: "@lorenzoF_SM"
+
   navbar:
+    pinned: true
+
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: "About"
+        href: index.qmd
+      - text: "Articles"
+        file: research/index.qmd
+
+    right:
+      - icon: envelope
+        aria-label: email
+        href: "mailto:lorenzo.fabbri@isglobal.org"
+      - icon: twitter
+        aria-label: twitter
+        href: https://twitter.com/lorenzoF_SM
+        rel: me
+      - icon: github
+        aria-label: github
+        href: https://github.com/lorenzoFabbri
+        rel: me
+
+  page-footer:
+    left: |
+      <span class="faux-block">{{< fa brands creative-commons >}} {{< var years >}} Lorenzo Fabbri</span>
+      <span class="faux-block">All content licensed under<br>[{{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-sa >}} Creative Commons CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)</span>
+    center: |
+      <span class="faux-block">{{< fa brands orcid >}} <strong>ORCID</strong> [{{< var orcid >}}](https://orcid.org/{{< var orcid >}})</span>
+    right: |
+      <span class="faux-block">Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)</span>
+      <span class="faux-block">[View the source at {{< fa brands github >}} GitHub]({{< var github-url >}})</span>
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    toc: true
+    theme:
+      - html/cep.scss
+    toc: false
+    code-link: true
+    anchor-sections: true
+    fig-cap-location: margin
+    reference-location: margin
+    footnotes-hover: true
+    highlight-style: monokai
