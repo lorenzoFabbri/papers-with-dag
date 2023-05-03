@@ -4,8 +4,36 @@ read_structured_file <- function(.path) {
   return(ret)
 }
 
-extract_info <- function() {
+process_authors <- function(tbl) {
+  ret <- tbl[[1]] |>
+    tidyr::unite(col = "name", c("family", "given"), sep = ", ") |>
+    dplyr::summarise(authors = paste(name, collapse = "; ")) |>
+    dplyr::select(authors) |>
+    dplyr::mutate(authors = stringr::str_to_title(authors), 
+                  authors = stringr::str_remove_all(authors, 
+                                                    stringr::fixed(".")))
   
+  return(ret$authors)
+}
+
+extract_info <- function(struct) {
+  ret <- rcrossref::cr_works(dois = struct$DOI) |>
+    purrr::pluck("data") |>
+    dplyr::mutate(authors = process_authors(author))
+  
+  return(list(
+    doi = struct$DOI, 
+    dag = struct$DAG, 
+    journal = ret$container.title, 
+    issue = ret$issue, 
+    volume = ret$volume, 
+    member = ret$member, 
+    pages = ret$page, 
+    date = ret$published.print, 
+    title = ret$title, 
+    authors = ret$authors
+  )
+  )
 }
 
 create_directory <- function() {
@@ -16,14 +44,62 @@ create_directory <- function() {
   return(paste0(.path, rand, "/"))
 }
 
+template_index <- function(info, path) {
+  template <- glue::glue(
+    '---
+title: "{{info$title}}"
+date: {{info$date}}
+doi: {{info$doi}}
+pub-info:
+  reference: >-
+    {{info$authors}}. "{{info$title}}", <em> {{info$journal}} </em> {{info$volume}}, no. {{info$issue}} ({{info$date}}): {{info$pages}}.
+    
+    DOI: <a href="https://doi.org/{{info$doi}}"><code>{{info$doi}}</code></a>
+  links:
+    - name: Article
+      url: https://doi.org/{{info$doi}}
+      icon: fa-solid fa-scroll
+---
+
+## Important links
+
+- [Article](https://doi.org/{{info$doi}})
+
+## DAG
+
+```{r}
+dag <- dagitty::dagitty(\'{{info$dag}}\')
+tidy_dag <- ggdag::tidy_dagitty(dag)
+
+ggdag::ggdag_status(tidy_dag) +
+  ggdag::theme_dag()
+```
+
+The **adjustment sets** are:
+
+```{r}
+dagitty::adjustmentSets(dag)
+```', 
+    .open = "{{", 
+    .close = "}}"
+  )
+  
+  cat(template, 
+      file = paste0(path, "index.qmd"))
+}
+
 pipeline <- function(path_in) {
   res <- read_structured_file(path_in)
   path_out <- create_directory()
   file.copy(from = path_in, 
             to = path_out)
-  file.remove(path_in)
-  file.copy(from = "research/template", 
-            to = path_out)
-  file.rename(from = paste0(path_out, "template"), 
-              to = paste0(path_out, "index.qmd"))
+  .filename <- path_in |>
+    strsplit("/")
+  .filename <- .filename[[1]][length(.filename[[1]])]
+  file.rename(from = paste0(path_out, .filename), 
+              to = paste0(path_out, "dat"))
+  #file.remove(path_in)
+  info_paper <- extract_info(res)
+  template_index(info = info_paper, 
+                 path = path_out)
 }
