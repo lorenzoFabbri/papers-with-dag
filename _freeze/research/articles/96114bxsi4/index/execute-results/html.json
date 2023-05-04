@@ -1,0 +1,16 @@
+{
+  "hash": "255442e4cccf96bcaca3b5aefe83667d",
+  "result": {
+    "markdown": "---\ntitle: \"Low total testosterone is associated with increased risk of incident type 2 diabetes mellitus in men: results from the Study of Health in Pomerania (SHIP)\"\ndate: 2011-09\ndoi: 10.3109/13685538.2010.524955\npub-info:\n  reference: >-\n    Schipf, Sabine; Haring, Robin; Friedrich, Nele; Nauck, Matthias; Lau, Katharina; Alte, Dietrich; Stang, Andreas; Völzke, Henry; Wallaschofski, Henri. \"Low total testosterone is associated with increased risk of incident type 2 diabetes mellitus in men: results from the Study of Health in Pomerania (SHIP)\", <em> The Aging Male </em> 14, no. 3 (2011-09): 168-175.\n    \n    DOI: <a href=\"https://doi.org/10.3109/13685538.2010.524955\"><code>10.3109/13685538.2010.524955</code></a>\n  links:\n    - name: Article\n      url: https://doi.org/10.3109/13685538.2010.524955\n      icon: fa-solid fa-scroll\n---\n\n\n## Important links\n\n- [Article](https://doi.org/10.3109/13685538.2010.524955)\n\n## DAG\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\nThe **adjustment sets** are:\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n{ PA, S, U, WC }\n{ A, S, U, WC }\n```\n:::\n:::",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

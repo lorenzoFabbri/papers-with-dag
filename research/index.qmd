@@ -4,6 +4,8 @@ listing:
   - id: articles
     contents: "articles/*/index.qmd"
     sort: "date desc"
+    sort-ui: [date]
+    filter-ui: [title, date]
     template: ../html/research/listing.ejs
     categories: true
 page-layout: full

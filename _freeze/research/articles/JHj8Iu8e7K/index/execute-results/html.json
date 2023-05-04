@@ -1,0 +1,16 @@
+{
+  "hash": "f342f92e8da9eb7029aee0fffdfb5530",
+  "result": {
+    "markdown": "---\ntitle: \"Genetic dissection and prognostic modeling of overt stroke in sickle cell anemia\"\ndate: 2005-04\ndoi: 10.1038/ng1533\npub-info:\n  reference: >-\n    Sebastiani, Paola; Ramoni, Marco F; Nolan, Vikki; Baldwin, Clinton T; Steinberg, Martin H. \"Genetic dissection and prognostic modeling of overt stroke in sickle cell anemia\", <em> Nature Genetics </em> 37, no. 4 (2005-04): 435-440.\n    \n    DOI: <a href=\"https://doi.org/10.1038/ng1533\"><code>10.1038/ng1533</code></a>\n  links:\n    - name: Article\n      url: https://doi.org/10.1038/ng1533\n      icon: fa-solid fa-scroll\n---\n\n\n## Important links\n\n- [Article](https://doi.org/10.1038/ng1533)\n\n## DAG\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\nThe **adjustment sets** are:\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n{ EDN1.10, EDNI1.6 }\n{ EDN1.9, EDNI1.6 }\n{ ANXA2.8, EDN1.9 }\n```\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

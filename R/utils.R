@@ -44,6 +44,15 @@ create_directory <- function() {
   return(paste0(.path, rand, "/"))
 }
 
+null_transformer <- function(text, envir) {
+  out <- glue::identity_transformer(text, envir)
+  if (is.null(out)) {
+    return("NULL")
+  }
+  
+  return(out)
+}
+
 template_index <- function(info, path) {
   template <- glue::glue(
     '---
@@ -79,27 +88,35 @@ The **adjustment sets** are:
 
 ```{r}
 dagitty::adjustmentSets(dag)
-```', 
+```
+
+    ', 
     .open = "{{", 
-    .close = "}}"
+    .close = "}}", 
+    .transformer = null_transformer
   )
   
   cat(template, 
       file = paste0(path, "index.qmd"))
 }
 
-pipeline <- function(path_in) {
-  res <- read_structured_file(path_in)
-  path_out <- create_directory()
-  file.copy(from = path_in, 
-            to = path_out)
-  .filename <- path_in |>
-    strsplit("/")
-  .filename <- .filename[[1]][length(.filename[[1]])]
-  file.rename(from = paste0(path_out, .filename), 
-              to = paste0(path_out, "dat"))
-  #file.remove(path_in)
-  info_paper <- extract_info(res)
-  template_index(info = info_paper, 
-                 path = path_out)
+pipeline <- function(path_in = "research/input") {
+  .list_files <- list.files(path_in, 
+                            full.names = TRUE)
+  
+  for (el in .list_files) {
+    res <- read_structured_file(el)
+    path_out <- create_directory()
+    file.copy(from = el, 
+              to = path_out)
+    file.remove(el)
+    .filename <- el |>
+      strsplit("/")
+    .filename <- .filename[[1]][length(.filename[[1]])]
+    file.rename(from = paste0(path_out, .filename), 
+                to = paste0(path_out, "dat"))
+    info_paper <- extract_info(res)
+    template_index(info = info_paper, 
+                   path = path_out)
+  } # End loop over input files
 }

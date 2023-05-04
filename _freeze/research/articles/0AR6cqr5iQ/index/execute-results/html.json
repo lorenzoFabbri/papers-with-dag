@@ -1,0 +1,16 @@
+{
+  "hash": "c9e3278bb4834e17fd85b5eb82d967b5",
+  "result": {
+    "markdown": "---\ntitle: \"Reducing bias through directed acyclic graphs\"\ndate: 2008-12\ndoi: 10.1186/1471-2288-8-70\npub-info:\n  reference: >-\n    Shrier, Ian; Platt, Robert W. \"Reducing bias through directed acyclic graphs\", <em> BMC Medical Research Methodology </em> 8, no. 1 (2008-12): NULL.\n    \n    DOI: <a href=\"https://doi.org/10.1186/1471-2288-8-70\"><code>10.1186/1471-2288-8-70</code></a>\n  links:\n    - name: Article\n      url: https://doi.org/10.1186/1471-2288-8-70\n      icon: fa-solid fa-scroll\n---\n\n\n## Important links\n\n- [Article](https://doi.org/10.1186/1471-2288-8-70)\n\n## DAG\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\nThe **adjustment sets** are:\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n{ NeuromuscularFatigue, TissueWeakness }\n{ ConnectiveTissueDisorder, NeuromuscularFatigue }\n{ FitnessLevel, Genetics }\n{ Coach, FitnessLevel }\n{ FitnessLevel, TeamMotivation }\n{ Coach, PreGameProprioception }\n{ PreGameProprioception, TeamMotivation }\n```\n:::\n:::",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "hash": "7e0c0cfa97e52828ab74708f50940719",
+  "result": {
+    "markdown": "---\ntitle: \"The SSQ model of schizophrenic prodromal unfolding revised: An analysis of its causal chains based on the language of directed graphs\"\ndate: 2014-09\ndoi: 10.1016/j.eurpsy.2013.11.001\npub-info:\n  reference: >-\n    Van Kampen, D. \"The SSQ model of schizophrenic prodromal unfolding revised: An analysis of its causal chains based on the language of directed graphs\", <em> European Psychiatry </em> 29, no. 7 (2014-09): 437-448.\n    \n    DOI: <a href=\"https://doi.org/10.1016/j.eurpsy.2013.11.001\"><code>10.1016/j.eurpsy.2013.11.001</code></a>\n  links:\n    - name: Article\n      url: https://doi.org/10.1016/j.eurpsy.2013.11.001\n      icon: fa-solid fa-scroll\n---\n\n\n## Important links\n\n- [Article](https://doi.org/10.1016/j.eurpsy.2013.11.001)\n\n## DAG\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\nThe **adjustment sets** are:\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n{ AIS, ALN }\n```\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

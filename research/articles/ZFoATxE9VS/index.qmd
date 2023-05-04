@@ -1,0 +1,34 @@
+---
+title: "Low total testosterone is associated with increased risk of incident type 2 diabetes mellitus in men: results from the Study of Health in Pomerania (SHIP)"
+date: 2011-09
+doi: 10.3109/13685538.2010.524955
+pub-info:
+  reference: >-
+    Schipf, Sabine; Haring, Robin; Friedrich, Nele; Nauck, Matthias; Lau, Katharina; Alte, Dietrich; Stang, Andreas; Völzke, Henry; Wallaschofski, Henri. "Low total testosterone is associated with increased risk of incident type 2 diabetes mellitus in men: results from the Study of Health in Pomerania (SHIP)", <em> The Aging Male </em> 14, no. 3 (2011-09): 168-175.
+    
+    DOI: <a href="https://doi.org/10.3109/13685538.2010.524955"><code>10.3109/13685538.2010.524955</code></a>
+  links:
+    - name: Article
+      url: https://doi.org/10.3109/13685538.2010.524955
+      icon: fa-solid fa-scroll
+---
+
+## Important links
+
+- [Article](https://doi.org/10.3109/13685538.2010.524955)
+
+## DAG
+
+```{r}
+dag <- dagitty::dagitty('dag { A [pos="-1.429,-2.311"] PA [pos="1.661,-2.186"] S [pos="-1.423,2.555"] T2DM [outcome,pos="1.666,2.693"] TT [exposure,pos="-0.443,-0.942"] U [pos="-0.459,1.159"] WC [pos="0.829,-0.735"] A -> PA A -> S A -> TT A -> U A -> WC PA -> T2DM PA -> WC S -> T2DM S -> TT U -> T2DM U -> TT WC -> T2DM WC -> TT WC -> U }')
+tidy_dag <- ggdag::tidy_dagitty(dag)
+
+ggdag::ggdag_status(tidy_dag) +
+  ggdag::theme_dag()
+```
+
+The **adjustment sets** are:
+
+```{r}
+dagitty::adjustmentSets(dag)
+```

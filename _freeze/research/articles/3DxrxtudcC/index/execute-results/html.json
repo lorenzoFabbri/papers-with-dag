@@ -1,0 +1,16 @@
+{
+  "hash": "6ec40b443cf84710ded54f9e5e057ac3",
+  "result": {
+    "markdown": "---\ntitle: \"The association of tooth loss with all-cause and circulatory mortality. Is there a benefit of replaced teeth? A systematic review and meta-analysis\"\ndate: 2012-04\ndoi: 10.1007/s00784-011-0625-9\npub-info:\n  reference: >-\n    Polzer, Ines; Schwahn, Christian; Völzke, Henry; Mundt, Torsten; Biffar, Reiner. \"The association of tooth loss with all-cause and circulatory mortality. Is there a benefit of replaced teeth? A systematic review and meta-analysis\", <em> Clinical Oral Investigations </em> 16, no. 2 (2012-04): 333-351.\n    \n    DOI: <a href=\"https://doi.org/10.1007/s00784-011-0625-9\"><code>10.1007/s00784-011-0625-9</code></a>\n  links:\n    - name: Article\n      url: https://doi.org/10.1007/s00784-011-0625-9\n      icon: fa-solid fa-scroll\n---\n\n\n## Important links\n\n- [Article](https://doi.org/10.1007/s00784-011-0625-9)\n\n## DAG\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\nThe **adjustment sets** are:\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n{ Age, Alcohol, Diabetes, Obesity, Psychosocial, Sex, Smoking, Sport }\n{ Age, Alcohol, Periodontitis, Psychosocial, Sex, Smoking }\n```\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
